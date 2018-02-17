@@ -73,7 +73,7 @@ module.exports = Object.freeze({
   ],
   channels: {
     lounge: 'chat',
-    rules: 'rules-and-info',
+    rules: 'rules',
     welcome: 'welcome'
   },
   emojis: {

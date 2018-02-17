@@ -60,10 +60,10 @@ function complimentPerson() {
   for (var i = 0; i < people.length; i++) {
     regexStr += people[i] + '|';
   }
-  console.log(regexStr.slice(0, -1) + ')');
+
   var regex = new RegExp(regexStr.slice(0, -1) + ')');
   var question = lcContent.split(regex);
-  console.log(question);
+
   if (question.length >= 3 && question[2].includes('is')) {
     var name = question[1][0].toUpperCase() + question[1].substr(1).toLowerCase();
     message.channel.send(`${name} is ` +
