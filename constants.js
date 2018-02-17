@@ -105,10 +105,13 @@ module.exports = Object.freeze({
     'dumb',
     'hate',
     'heartless',
+    'horrible',
     'idiot',
     'mean',
     'rude',
-    'stupid'
+    'terrible',
+    'stupid',
+    'suck'
   ],
   people: [
     'furuya',

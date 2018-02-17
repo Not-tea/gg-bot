@@ -81,15 +81,15 @@ function help() {
         },
         {
           "name": "emoji/ej :emojiname:",
-          "value": `\`e.g. ${Constants.commandFlag}emoji ${Constants.emojis['happy']}\` Outputs a large version of an emoji.`
+          "value": `\`e.g. ${Constants.commandFlag}emoji ${Constants.emojis['happy']}\`\nOutputs a large version of an emoji.`
         },
         {
           "name": "role/rl <rolename>",
-          "value": `\`e.g. ${Constants.commandFlag}role ${Constants.defaultRole}\`Outputs a prettified @rolename and the role's ID.`
+          "value": `\`e.g. ${Constants.commandFlag}role ${Constants.defaultRole}\`\nOutputs a prettified @rolename and the role's ID.`
         },
         {
           "name": "translate/ts <language> <what to translate>",
-          "value": `\` e.g. ${Constants.commandFlag}ts english salut\` Google translates your sentence.`
+          "value": `\` e.g. ${Constants.commandFlag}ts english salut\`\nGoogle translates your sentence.`
         }
       ],
       "footer": {

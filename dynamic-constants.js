@@ -9,7 +9,7 @@ const Utils = require('./utils.js');
 
 module.exports = {
   welcomeMsg: function(member) {
-    var rules = Utils.channel(Constants.channels['rules'];
+    var rules = Utils.channel(Constants.channels['rules']);
     var emoji = Utils.emoji(Constants.emojis['happy']);
 
     return `Welcome to the server, ${member}! ` +

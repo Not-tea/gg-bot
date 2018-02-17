@@ -34,7 +34,7 @@ module.exports = {
 
     if (lcContent.includes('say')) { echo(); return; }
     if (lcContent.endsWith('?')) { answerQuestion(); return; }
-    if (Utils.includesAny(lcContent, Constants.names)) { complimentPerson(); return; }
+    if (Utils.includesAny(lcContent, Constants.people)) { complimentPerson(); return; }
     if (Utils.includesAny(lcContent, Constants.insults)) { greet('insults'); return; }
     if (Utils.includesAny(lcContent, Constants.compliments)) { greet('compliments'); return; }
 
@@ -57,13 +57,13 @@ function answerQuestion() {
 function complimentPerson() {
   var regexStr = '(';
   var people = Constants.people;
-  for (var i = 0; i < arr.length; i++) {
+  for (var i = 0; i < people.length; i++) {
     regexStr += people[i] + '|';
   }
-
-  var regex = new RegExp(regexStr.trim('|') + ')');
+  console.log(regexStr.slice(0, -1) + ')');
+  var regex = new RegExp(regexStr.slice(0, -1) + ')');
   var question = lcContent.split(regex);
-
+  console.log(question);
   if (question.length >= 3 && question[2].includes('is')) {
     var name = question[1][0].toUpperCase() + question[1].substr(1).toLowerCase();
     message.channel.send(`${name} is ` +
@@ -82,7 +82,7 @@ function echo() {
 
   } else {
     var name = Constants.botName;
-    var regex = new RegExp('/,* *(' + name[0] + '|' + name[0].toUpperCase() + name.substr(1) + '$')
+    var regex = new RegExp('/,* *(' + name[0] + '|' + name[0].toUpperCase() + name.substr(1) + ')$')
     toSay[1] = toSay[1].replace(regex, '').trim();
 
     if (toSay[1].length == 0) {
