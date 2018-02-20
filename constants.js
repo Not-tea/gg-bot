@@ -72,6 +72,7 @@ module.exports = Object.freeze({
     'tsundere'
   ],
   channels: {
+    info: 'info',
     lounge: 'chat',
     rules: 'rules',
     welcome: 'welcome'

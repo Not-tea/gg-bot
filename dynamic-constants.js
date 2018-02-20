@@ -10,10 +10,11 @@ const Utils = require('./utils.js');
 module.exports = {
   welcomeMsg: function(member) {
     var rules = Utils.channel(Constants.channels['rules']);
+    var info = Utils.channel(Constants.channels['info']);
     var emoji = Utils.emoji(Constants.emojis['happy']);
 
     return `Welcome to the server, ${member}! ` +
-          `Be sure to check out ${rules}.id for basic ` +
+          `Be sure to check out ${rules} and ${info} for basic ` +
           "info on the server :heart: We're always pumped to talk to new people, " +
           "so don't feel afraid to jump in on any conversations!\n\n" +
           `I've given you the ${Constants.defaultRole} flair for now ` +

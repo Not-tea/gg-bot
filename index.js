@@ -52,4 +52,4 @@ client.on('message', message => {
     MessageLimiter.run(message);
 });
 
-client.login('[INSERT TOKEN HERE]');
+client.login('INSERT_TOKEN_HERE');
