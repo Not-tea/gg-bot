@@ -22,7 +22,10 @@ GG-Bot is a simple Discord bot that can run commands and chat with people on Dis
 3. Copy your application's `Client/Application ID` at the top of the page, then go to `https://discordapp.com/oauth2/authorize?client_id=INSERT_ID_HERE&scope=bot`, replacing `INSERT_ID_HERE` with your real ID
 4. Authorize your bot for the server you want to add it to
 5. Return to your application page and in the Bot section, click `click to reveal` to reveal your bot's token and copy it
-6. Go to [index.js](index.js) and replace `[INSERT TOKEN HERE]` at the bottom of the file with your real bot's token
+6. Return to your terminal of choice in the gg-bot directory:
+   - If you're on Windows, run `set BOT_TOKEN=INSERT_ID_HERE`, replacing INSERT_ID_HERE with your actual bot token
+   - If you're on Mac, run `export BOT_TOKEN=INSERT_ID_HERE`, replacing INSERT_ID_HERE with your actual bot token
+   - If you're on Linux, I assume you know how to set an environment variable
 7. Run `node index.js` - your bot should begin running
 
 ### Customizing your bot
