@@ -11,7 +11,10 @@ GG-Bot is a simple Discord bot that can run commands and chat with people on Dis
 3. In your terminal of choice, clone your forked repository by running `git clone <url_to_forked_repository>`
 4. Follow the steps [here](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/development_environment) to set up node.js if necessary
 
-### Setting up your bot
+### Setting up your bot to run locally
+Note: This will allow your bot to run on your computer *only when* you have your computer
+open and running with an Internet connection. To have your bot running 24/7 without
+straining your computer, refer to `Setting up your bot to run remotely`
 
 1. Create a [Discord Application](https://discordapp.com/developers/applications/me)
    - Click on `New Application`
@@ -27,6 +30,26 @@ GG-Bot is a simple Discord bot that can run commands and chat with people on Dis
    - If you're on Mac, run `export BOT_TOKEN=INSERT_ID_HERE`, replacing INSERT_ID_HERE with your actual bot token
    - If you're on Linux, I assume you know how to set an environment variable
 7. Run `node index.js` - your bot should begin running
+
+### Setting up your bot to run remotely
+
+1. Create a [Heroku account](https://www.heroku.com/) - select the Free plan unless
+you expect your bot to be getting a *lot* of traffic
+2. Download the [Heroku CLI tools](https://devcenter.heroku.com/articles/heroku-cli)
+3. In your terminal of choice, navigate to the `gg-bot` folder and run `heroku login`
+Enter your login credentials for Heroku
+4. Run (replacing INSERT_ID_HERE with your actual bot token):
+```
+heroku create
+heroku config:set BOT_TOKEN=INSERT_ID_HERE
+heroku ps:scale web=0
+heroku ps:scale bot=1
+git push heroku master
+```
+5. Check the status of your bot by running `heroku ps` - if it's running successfully,
+you should see that `bot` is marked as `up`. If it's crashed, you may want to debug
+by running `heroku logs --tail`, which will allow you to see error messages and
+other relevant info
 
 ### Customizing your bot
 
@@ -66,7 +89,8 @@ Additionally, note that the bot's name may be anywhere in a message and it will 
 
 `Elena, say <something>`
 
-gg-bot will echo what a user tells it to say.
+gg-bot will echo what a user tells it to say. There's a 5% chance that it will output
+a message saying that they don't want to repeat what they were told to say.
 
 `Elena, <question>?`
 

@@ -58,6 +58,7 @@ module.exports = Object.freeze({
     'Yes, go to sleep, sleep is good',
     "No, don't sleep, stay with me :("
   ],
+  // 5% chance of being outputted when someone asks gg-bot to say something
   tiredMsgs: [
     "Leave me alone, I have my own life too",
     "I don't want to, hmph",
