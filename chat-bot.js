@@ -32,6 +32,7 @@ module.exports = {
     content = message.content;
     lcContent = content.toLowerCase();
 
+    if (Utils.includesAny(lcContent, Constants.blacklist)) { return; }
     if (lcContent.includes('say')) { echo(); return; }
     if (lcContent.endsWith('?')) { answerQuestion(); return; }
     if (Utils.includesAny(lcContent, Constants.people)) { complimentPerson(); return; }

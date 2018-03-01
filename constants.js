@@ -10,6 +10,12 @@
 */
 
 module.exports = Object.freeze({
+  blacklist: [
+    'boobs',
+    'boob',
+    'ass',
+    'penis'
+  ],
   botName: 'elena',
   commandFlag: '*',
   defaultRole: 'PSB',

@@ -42,7 +42,12 @@ client.on('message', message => {
 
   var content = message.content;
 
-  if (content.startsWith(Constants.commandFlag)) {
+  if (Utils.includesAny(content.toLowerCase(), Constants.blacklist)) {
+    message.delete(2);
+    return;
+  }
+
+  if (content.startsWith('*')) {
     Commands.run(message);
   } else if (content.toLowerCase().includes(Constants.botName)) {
     ChatBot.run(message);
