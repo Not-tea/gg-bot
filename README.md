@@ -29,7 +29,8 @@ straining your computer, refer to `Setting up your bot to run remotely`
    - If you're on Windows, run `set BOT_TOKEN=INSERT_ID_HERE`, replacing INSERT_ID_HERE with your actual bot token
    - If you're on Mac, run `export BOT_TOKEN=INSERT_ID_HERE`, replacing INSERT_ID_HERE with your actual bot token
    - If you're on Linux, I assume you know how to set an environment variable
-7. Run `node index.js` - your bot should begin running
+7. Run `npm install` and wait for it to finish. When it does, you should see a `node_modules` folder in your directory.
+8. Run `node index.js` - your bot should begin running
 
 ### Setting up your bot to run remotely
 
@@ -87,6 +88,8 @@ By default, gg-bot will chat with a user if their message contains the name 'Ele
 
 Additionally, note that the bot's name may be anywhere in a message and it will still trigger.
 
+However, it will not answer to any message that contains words specified in the blacklist (defined in constants).
+
 `Elena, say <something>`
 
 gg-bot will echo what a user tells it to say. There's a 5% chance that it will output
@@ -111,3 +114,13 @@ gg-bot will output an insult from [messages](messages.js).
 `Elena, <greeting>`
 
 gg-bot will output a hello, goodbye, or good night from [messages](messages.js) depending on the greeting.  
+
+### Moderation
+
+So long as you give gg-bot the appropriate permissions, gg-bot will automatically delete any message that contains a blacklisted word.
+
+This can be disabled by setting `moderate` to `false` in the [constants](constants.js) file.
+
+You can restore the contents of deleted messages if you have the `adminRole` specified in constants by sending `*restore` or `*restore all` to any channel. These commands will respectively send the contents of the last deleted message or the contents of all deleted messages to the channel.
+
+Note that deleted messages will be lost forever if you shut down gg-bot.

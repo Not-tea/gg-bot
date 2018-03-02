@@ -18,7 +18,7 @@ const Utils = require('./utils.js');
 
 const client = new Discord.Client();
 
-var questions = {};
+var deletedMessages = [];
 
 client.on('ready', () => {
   console.log('Ready to roll as ' + client.user.username);
@@ -41,10 +41,21 @@ client.on('message', message => {
   if (name == client.user.username) return; // Prevent infinite response loop
 
   var content = message.content;
+  var lcContent = content.toLowerCase();
 
-  if (Utils.includesAny(content.toLowerCase(), Constants.blacklist)) {
-    message.delete(2);
-    return;
+  if (Constants.moderate) {
+    if (Utils.includesAny(lcContent, Constants.blacklist)) {
+      deletedMessages.push({ sender: message.author.username, message: content });
+      message.delete(2);
+      return;
+    }
+
+    if (lcContent.includes('*restore')) {
+      if (Utils.role(Constants.adminRole, message.guild).members.has(message.author.id)) {
+        lcContent == '*restore all' ? restoreAll(message) : restoreOne(message);
+        return;
+      }
+    }
   }
 
   if (content.startsWith('*')) {
@@ -56,5 +67,27 @@ client.on('message', message => {
   if (message.channel.name == Constants.channels['welcome'])
     MessageLimiter.run(message);
 });
+
+function restoreAll(message) {
+  var length = deletedMessages.length;
+
+  if (length == 0) {
+    message.channel.send('There is nothing to restore')
+    return;
+  }
+
+  for (var i = 0; i < length; i++) {
+    restoreOne(message);
+  }
+}
+
+function restoreOne(message) {
+  if (deletedMessages.length > 0) {
+    var lastMsg = deletedMessages.pop();
+    message.channel.send(`**${lastMsg['sender']} sent:** \`\`\`${lastMsg['message']}\`\`\``);
+  } else {
+    message.channel.send('There is nothing to restore');
+  }
+}
 
 client.login(process.env.BOT_TOKEN);

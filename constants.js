@@ -10,16 +10,19 @@
 */
 
 module.exports = Object.freeze({
+  botName: 'elena',
+  commandFlag: '*',
+  adminRole: 'Leaders of Hiatus Hysteria',
+  defaultRole: 'PSB',
+  developer: 'greenglasses',
+  moderate: true,
   blacklist: [
     'boobs',
     'boob',
-    'ass',
-    'penis'
+    ' ass ',
+    'penis',
+    'for-testing-purposes'
   ],
-  botName: 'elena',
-  commandFlag: '*',
-  defaultRole: 'PSB',
-  developer: 'greenglasses',
   colours: {
     DEFAULT: 0,
     AQUA: 1752220,
