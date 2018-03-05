@@ -33,7 +33,7 @@ module.exports = {
     lcContent = content.toLowerCase();
 
     if (Utils.includesAny(lcContent, Constants.blacklist)) { return; }
-    if (lcContent.includes('say')) { echo(); return; }
+    if (/\bsay\b/.test(lcContent)) { echo(); return; }
     if (lcContent.endsWith('?')) { answerQuestion(); return; }
     if (Utils.includesAny(lcContent, Constants.people)) { complimentPerson(); return; }
     if (Utils.includesAny(lcContent, Constants.insults)) { greet('insults'); return; }
@@ -65,7 +65,7 @@ function complimentPerson() {
   var regex = new RegExp(regexStr.slice(0, -1) + ')');
   var question = lcContent.split(regex);
 
-  if (question.length >= 3 && question[2].includes('is')) {
+  if (question.length >= 3 && /\bis\b/.test(question[2])) {
     var name = question[1][0].toUpperCase() + question[1].substr(1).toLowerCase();
     message.channel.send(`${name} is ` +
       Constants.compliments[Utils.randNum(Constants.compliments.length)]);

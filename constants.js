@@ -19,7 +19,6 @@ module.exports = Object.freeze({
   blacklist: [
     'boobs',
     'boob',
-    ' ass ',
     'penis',
     'for-testing-purposes'
   ],
@@ -102,8 +101,7 @@ module.exports = Object.freeze({
   hellos: [
     'bonjour',
     'hello',
-    'hi ',
-    ' hi',
+    'hi',
     'hey',
     'morning',
     'evening',

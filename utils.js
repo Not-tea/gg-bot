@@ -26,11 +26,12 @@ module.exports = {
   },
   includesAny: function(str, arr) {
     for (var i = 0; i < arr.length; i++) {
-      if (str.includes(arr[i])) return true;
+      if (wordRegex(arr[i]).test(str)) return true;
     }
 
     return false;
   },
+  wordRegex: wordRegex,
   randNum: function(size) {
     return Math.floor(Math.random() * size);
   },
@@ -46,4 +47,8 @@ module.exports = {
     if (!usr) console.error(`The user ${name} was not found`);
     return usr;
   }
+}
+
+function wordRegex(str) {
+  return new RegExp("\\b" + str + "\\b");
 }

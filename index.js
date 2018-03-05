@@ -50,7 +50,7 @@ client.on('message', message => {
       return;
     }
 
-    if (lcContent.includes('*restore')) {
+    if (/^\*restore( all)?$/.test(lcContent)) {
       if (Utils.role(Constants.adminRole, message.guild).members.has(message.author.id)) {
         lcContent == '*restore all' ? restoreAll(message) : restoreOne(message);
         return;
@@ -60,7 +60,7 @@ client.on('message', message => {
 
   if (content.startsWith('*')) {
     Commands.run(message);
-  } else if (content.toLowerCase().includes(Constants.botName)) {
+  } else if (Utils.wordRegex(Constants.botName).test(lcContent)) {
     ChatBot.run(message);
   }
 
