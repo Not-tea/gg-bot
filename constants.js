@@ -14,7 +14,7 @@ module.exports = Object.freeze({
   commandFlag: '!',
   adminRole: 'Queen of Harem',
   defaultRole: 'Harem Visitors',
-  developer: 'greenglasses',
+  developer: 'Tea',
   moderate: true,
   blacklist: [
     'boobs',
