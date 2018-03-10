@@ -10,10 +10,10 @@
 */
 
 module.exports = Object.freeze({
-  botName: 'elena',
-  commandFlag: '*',
-  adminRole: 'Leaders of Hiatus Hysteria',
-  defaultRole: 'PSB',
+  botName: 'Satan',
+  commandFlag: '!',
+  adminRole: 'Queen of Harem',
+  defaultRole: 'Harem Visitors',
   developer: 'greenglasses',
   moderate: true,
   blacklist: [
