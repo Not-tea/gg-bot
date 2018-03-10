@@ -58,7 +58,7 @@ client.on('message', message => {
     }
   }
 
-  if (content.startsWith('*')) {
+  if (content.startsWith(Constants.commandFlag)) {
     Commands.run(message);
   } else if (Utils.wordRegex(Constants.botName).test(lcContent)) {
     ChatBot.run(message);
